@@ -1,0 +1,10 @@
+.cell {
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 1px;
+}
+
+.grid-row {
+  clear: both;
+}
