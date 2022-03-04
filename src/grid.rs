@@ -2,11 +2,11 @@
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cell {
     Empty,
-    Visited,
-    Current,
-    Origin,
-    Target,
-    Wall,
+//    Visited,
+//    Current,
+//    Origin,
+//    Target,
+//    Wall,
 }
 
 #[derive(Clone, Debug)]
@@ -22,7 +22,7 @@ impl Grid {
         let height = 64;
 
         let cells = (0..width * height)
-            .map({ |i| Cell::Empty })
+            .map(|_i| Cell::Empty)
             .collect();
 
         Grid {

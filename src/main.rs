@@ -5,19 +5,16 @@ use yew::prelude::*;
 
 use crate::grid::Grid;
 use crate::grid::Cell;
-use crate::algorithms::fan_out::FanOut;
+//use crate::algorithms::fan_out::FanOut;
 
 struct GridModel {
-    // `ComponentLink` is like a reference to a component.
-    // It can be used to send messages to the component
-    link: ComponentLink<Self>,
     grid: Grid,
 }
 
 impl GridModel {
-    fn view_cell(&self, idx: usize, cell: &Cell) -> Html {
+    fn view_cell(&self, idx: usize, _cell: &Cell) -> Html {
         html!{
-            <div key=idx class=classes!("cell", "ba")>
+            <div key={idx} class={classes!("cell", "ba")}>
             </div>
         }
     }
@@ -27,25 +24,17 @@ impl Component for GridModel {
     type Message = ();
     type Properties = ();
 
-    fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
+    fn create(_ctx: &Context<Self>) -> Self {
         Self {
-            link,
             grid: Grid::new()
         }
     }
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
+    fn update(&mut self, _ctx: &Context<Self>, _msg: Self::Message) -> bool {
         false
     }
 
-    fn change(&mut self, _props: Self::Properties) -> ShouldRender {
-        // Should only return "true" if new properties are different to
-        // previously received properties.
-        // This component has no properties so we will always return "false".
-        false
-    }
-
-    fn view(&self) -> Html {
+    fn view(&self, _ctx: &Context<Self>) -> Html {
         let cell_rows = self.grid.cells
             .chunks(self.grid.width as usize)
             .enumerate()
@@ -57,7 +46,7 @@ impl Component for GridModel {
                     .enumerate()
                     .map(|(x, cell)| self.view_cell(idx_offset + x, cell));
                 html! {
-                    <div key=y class="grid-row">
+                    <div key={y} class="grid-row">
                         { for cell_views }
                     </div>
                 }
