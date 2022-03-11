@@ -1,8 +1,34 @@
 .cell {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   float: left;
   margin: 1px;
+  border-color: rgba(0,0,0,0.05);
+}
+
+.visited {
+  background: #ebebeb;
+}
+
+.current {
+  background: green;
+}
+
+.origin {
+  background: purple;
+}
+
+.target {
+  background: red;
+}
+
+.wall {
+  background: black;
+}
+
+.path {
+  background: #3cb141;
+  border-color: #267029;
 }
 
 .grid-row {
