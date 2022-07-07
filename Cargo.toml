@@ -6,3 +6,7 @@ edition = "2018"
 [dependencies]
 # you can check the latest version here: https://crates.io/crates/yew
 yew = "^0.19"
+log = "^0.4"
+wasm-logger = "^0.2"
+gloo-timers = "^0.2"
+queues = "^1.0"
